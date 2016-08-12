@@ -6,7 +6,7 @@ const util = require('../../lib/util');
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 exports.add = (payload, err, success) => {
   db.user.create(payload).then(success).catch(err);
-  util.debug('Models user is being added', payload);
+  util.debug('User being ' + 'Added '.create + 'to Models - ', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -30,7 +30,7 @@ exports.one = (payload, err, success) => {
       nested: true,
     }],
   }).then(success).catch(err);
-  util.debug('Models user is being searched', payload);
+  util.debug('User being ' + 'Searched '.read + 'in Models - ', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -44,7 +44,7 @@ exports.update = (payload, err, success) => {
   }).then((existingData) => {
     existingData.updateAttributes(payload).then(success).catch(err);
   }).catch(err);
-  util.debug('Models user is being updated', payload);
+  util.debug('User being ' + 'Updated '.update + 'in Models - ', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -56,5 +56,5 @@ exports.remove = (payload, err, success) => {
       id: payload.id,
     },
   }).then(success).catch(err);
-  util.debug('Models user is being removed', payload);
+  util.debug('User being ' + 'Removed '.delete + 'from Models - ', payload);
 };

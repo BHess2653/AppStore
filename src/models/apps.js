@@ -2,11 +2,11 @@ const db = require('./db');
 const util = require('../../lib/util');
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-// Exporst add function
+// Exports add function
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 exports.add = (payload, err, success) => {
   db.app.create(payload).then(success).catch(err);
-  util.debug('Models apps is being added', payload);
+  util.debug('App ' + 'Added '.create + 'in Models - ', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -30,7 +30,7 @@ exports.one = (payload, err, success) => {
       nested: true,
     }],
   }).then(success).catch(err);
-  util.debug('Models apps is being searched', payload);
+  util.debug('App being ' + 'Searched '.read + 'in Models - ', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -44,7 +44,7 @@ exports.update = (payload, err, success) => {
   }).then((existingData) => {
     existingData.updateAttributes(payload).then(success).catch(err);
   }).catch(err);
-  util.debug('Models apps is being updated', payload);
+  util.debug('App being ' + 'Updated '.update + 'in Models - ', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -56,5 +56,5 @@ exports.remove = (payload, err, success) => {
       id: payload.id,
     },
   }).then(success).catch(err);
-  util.debug('Models apps is being removed', payload);
+  util.debug('App being ' + 'Removed '.delete + 'from Models - ', payload);
 };
