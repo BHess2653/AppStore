@@ -1,10 +1,12 @@
 const db = require('./db');
+const util = require('../../lib/util');
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Exporst add function
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 exports.add = (payload, err, success) => {
   db.app.create(payload).then(success).catch(err);
+  util.debug('Models apps is being added', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -28,6 +30,7 @@ exports.one = (payload, err, success) => {
       nested: true,
     }],
   }).then(success).catch(err);
+  util.debug('Models apps is being searched', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -41,6 +44,7 @@ exports.update = (payload, err, success) => {
   }).then((existingData) => {
     existingData.updateAttributes(payload).then(success).catch(err);
   }).catch(err);
+  util.debug('Models apps is being updated', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -52,4 +56,5 @@ exports.remove = (payload, err, success) => {
       id: payload.id,
     },
   }).then(success).catch(err);
+  util.debug('Models apps is being removed', payload);
 };
