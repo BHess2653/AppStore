@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const util = require('../lib/util');
 
 const app = express();
 
@@ -21,7 +22,7 @@ app.use('/api/v1', require('./routes/index')(express));
 // Sets listening action on port
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 const server = app.listen(port, () => {
-  console.log('server active on', port);
+  util.debug('server active on', port);
 });
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
