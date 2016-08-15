@@ -29,8 +29,27 @@ To run the unit tests
 npm test
 ```
 
+## Debug usage
 
-## routes
+Turn debug on
+```
+DEBUG=true node src/server.js
+```
+
+Sample debug output
+```
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+DB sync "✓ Success ✓"
+Sun Aug 14 2016 22:38:02 GMT-0400 (EDT)
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Server active on 3000
+Sun Aug 14 2016 22:38:02 GMT-0400 (EDT)
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+```
+
+## Routes
 
 CRUD for Users
 
