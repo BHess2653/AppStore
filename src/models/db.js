@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const util = require('../../lib/util');
 
 require('dotenv').config();
 
@@ -47,6 +48,11 @@ user.hasMany(app, {
 
 // Sync to database
 sequelize.sync();
+if (sequelize.sync()) {
+  util.debug('DB sync ', '✓ Success ✓');
+} else {
+  util.debug('DB sync ', 'x Failed x');
+}
 
 // Export sequelize
 exports.sequelize = sequelize;
