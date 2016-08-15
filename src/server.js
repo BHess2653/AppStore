@@ -22,7 +22,7 @@ app.use('/api/v1', require('./routes/index')(express));
 // Sets listening action on port
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 const server = app.listen(port, () => {
-  util.debug('server active on ', port);
+  util.debug('Server active on ', port);
 });
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
