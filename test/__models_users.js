@@ -2,6 +2,7 @@ const expect = require('chai').expect;
 const request = require('supertest');
 const faker = require('faker');
 const User = require('../src/models/users');
+const util = require('../lib/util');
 
 describe('User Model', () => {
   let server;
@@ -27,7 +28,6 @@ describe('User Model', () => {
   it('Adds a new User', (done) => {
     // Generate a fake User with a random name
     const fakeUser = { name: faker.name.firstName() };
-
     // Call user model for adding
     User.add(fakeUser,
       (err) => {
@@ -36,7 +36,6 @@ describe('User Model', () => {
       (user) => {
         // Save the returned data for later use in tests
         this.tempUser = user.dataValues;
-
         // User.name returned from model should match user.name supplied
         expect(user.name).to.be.equal(fakeUser.name);
         done();
@@ -67,7 +66,7 @@ describe('User Model', () => {
     // Load in the info for an existing user
     const updateUser = this.tempUser;
 
-    // Generate a new name for hte user
+    // Generate a new name for the user
     updateUser.name = 'Not A Real Name';
 
     // Call user model for updating

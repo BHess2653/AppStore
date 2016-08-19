@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const request = require('supertest');
 const faker = require('faker');
-const App = require('../src/models/apps');
+const App = require('../src/models/characters');
 
 describe('App Model', () => {
   let server;
@@ -26,7 +26,7 @@ describe('App Model', () => {
   // Add a App
   it('Adds a new App', (done) => {
     // Generate a fake App with a random title
-    const fakeApp = { title: faker.name.firstName() };
+    const fakeApp = { name: faker.name.firstName() };
 
     // Call app model for adding
     App.add(fakeApp,
@@ -38,7 +38,7 @@ describe('App Model', () => {
         this.tempApp = app.dataValues;
 
         // App.title returned from model should match app.title supplied
-        expect(app.title).to.be.equal(fakeApp.title);
+        expect(app.name).to.be.equal(fakeApp.name);
         done();
       }
     );
@@ -56,7 +56,7 @@ describe('App Model', () => {
       },
       (app) => {
         // App.title returned from model should match app.title supplied
-        expect(app.title).to.be.equal(targetApp.title);
+        expect(app.name).to.be.equal(targetApp.name);
         done();
       }
     );
@@ -68,7 +68,7 @@ describe('App Model', () => {
     const updateApp = this.tempApp;
 
     // Generate a new title for hte app
-    updateApp.title = 'Not A Real Name';
+    updateApp.name = 'Not A Real Name';
 
     // Call app model for updating
     App.update(updateApp,
@@ -79,7 +79,7 @@ describe('App Model', () => {
         // Save the returned data for later use in tests
         this.tempApp = app;
         // App.title returned from model should match app.title supplied
-        expect(app.title).to.be.equal(updateApp.title);
+        expect(app.name).to.be.equal(updateApp.name);
         done();
       }
     );

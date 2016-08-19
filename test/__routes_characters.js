@@ -14,9 +14,9 @@ describe('App Routes', () => {
   });
 
   // Test for Multiple Apps
-  it('GET /api/v1/apps returns multiple apps', (done) => {
+  it('GET /api/v1/characters returns multiple apps', (done) => {
     request(server)
-      .get('/api/v1/apps')
+      .get('/api/v1/characters')
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
@@ -31,16 +31,17 @@ describe('App Routes', () => {
   });
 
   // Test for a single app
-  it('GET /api/v1/apps/:id returns an app obj with id, title, description, and releaseDate properties', (done) => {
+  it('GET /api/v1/characters/:id returns an app obj with id, title, description, and releaseDate properties', (done) => {
     request(server)
-      .get('/api/v1/apps/' + this.app.id)
+      .get('/api/v1/characters/' + this.app.id)
       .set('Accept', 'application/json')
       .expect('Content-Type', /json/)
       .expect((res) => {
         app = res.body;
         expect(app).to.have.property('id');
-        expect(app).to.have.property('title');
-        expect(app).to.have.property('description');
+        expect(app).to.have.property('name');
+        expect(app).to.have.property('class');
+        expect(app).to.have.property('spec');
       })
       .end(done);
   });
