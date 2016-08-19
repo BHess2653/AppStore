@@ -28,21 +28,21 @@ const user = sequelize.define('users', {
 });
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-// Defines App table
+// Defines character table
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-const app = sequelize.define('apps', {
-  title: {
+const character = sequelize.define('characters', {
+  name: {
     type: Sequelize.STRING,
   },
-  description: {
+  class: {
     type: Sequelize.STRING,
   },
-  releaseDate: {
+  spec: {
     type: Sequelize.STRING,
   },
 });
 
-user.hasMany(app, {
+user.hasMany(character, {
   foreignKey: 'userID',
 });
 
@@ -60,5 +60,5 @@ exports.sequelize = sequelize;
 // Exports user
 exports.user = user;
 
-// Exports app
-exports.app = app;
+// Exports character
+exports.character = character;
