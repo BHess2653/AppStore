@@ -9,7 +9,7 @@ module.exports = (express) => {
 
   // Routes
   router.use('/api/v1/', require('./users')(express));
-  router.use('/api/v1/', require('./apps')(express));
+  router.use('/api/v1/', require('./characters')(express));
 
   return router;
 };
