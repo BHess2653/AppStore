@@ -1,6 +1,7 @@
 const expect = require('chai').expect;
 const request = require('supertest');
 const App = require('../src/models/characters');
+const utool = require('fs-uTool');
 
 describe('User Routes', () => {
   let server;

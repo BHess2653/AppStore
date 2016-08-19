@@ -2,6 +2,7 @@ const expect = require('chai').expect;
 const request = require('supertest');
 const faker = require('faker');
 const App = require('../src/models/characters');
+const utool = require('fs-uTool');
 
 describe('App Model', () => {
   let server;
