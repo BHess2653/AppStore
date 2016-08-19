@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 const port = process.env.PORT || 3000;
 
-app.use('/api/v1', require('./routes/apps')(express));
+app.use('/api/v1', require('./routes/characters')(express));
 app.use('/api/v1', require('./routes/users')(express));
 app.use('/api/v1', require('./routes/index')(express));
 
