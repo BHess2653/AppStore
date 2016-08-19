@@ -3,13 +3,9 @@
   "version": "1.5.1",
   "description": "app store",
   "main": "src/server.js",
-  "engines": {
-    "node": "v6.3.1",
-    "npm": "3.10.5",
-  },
   "scripts": {
     "start": "node src/server.js",
-    "test": "mocha  --reporter nyan"
+    "test": "mocha --reporter nyan"
   },
   "repository": {
     "type": "git",
