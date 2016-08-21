@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const util = require('../../lib/util');
+const utool = require('fs-uTool');
 
 require('dotenv').config();
 
@@ -49,9 +49,9 @@ user.hasMany(character, {
 // Sync to database
 sequelize.sync();
 if (sequelize.sync()) {
-  util.debug('DB sync ', '✓ Success ✓');
+  utool.debug('DB sync ', '✓ Success ✓');
 } else {
-  util.debug('DB sync ', 'x Failed x');
+  utool.debug('DB sync ', 'x Failed x');
 }
 
 // Export sequelize
