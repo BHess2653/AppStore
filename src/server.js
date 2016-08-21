@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const util = require('../lib/util');
+const utool = require('fs-uTool');
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.use('/api/v1', require('./routes/index')(express));
 // Sets listening action on port
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 const server = app.listen(port, () => {
-  util.debug('Server active on ', port);
+  utool.debug('Server active on ', port);
 });
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
