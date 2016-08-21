@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 const request = require('supertest');
-const utool = require('fs-uTool');
+const util = require('../lib/util');
 
 describe('App Routes', () => {
   let server;
