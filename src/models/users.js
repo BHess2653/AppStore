@@ -1,12 +1,12 @@
 const db = require('./db');
-const utool = require('fs-uTool');
+const util = require('../../lib/util');
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Exporsts add function
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 exports.add = (payload, err, success) => {
   db.user.create(payload).then(success).catch(err);
-  utool.debug('User being ' + 'Added '.create + 'to Models - ', payload);
+  util.debug('User being ' + 'Added '.create + 'to Models - ', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -30,7 +30,7 @@ exports.one = (payload, err, success) => {
       nested: true,
     }],
   }).then(success).catch(err);
-  utool.debug('User being ' + 'Searched '.read + 'in Models - ', payload);
+  util.debug('User being ' + 'Searched '.read + 'in Models - ', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -44,7 +44,7 @@ exports.update = (payload, err, success) => {
   }).then((existingData) => {
     existingData.updateAttributes(payload).then(success).catch(err);
   }).catch(err);
-  utool.debug('User being ' + 'Updated '.update + 'in Models - ', payload);
+  util.debug('User being ' + 'Updated '.update + 'in Models - ', payload);
 };
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -56,5 +56,5 @@ exports.remove = (payload, err, success) => {
       id: payload.id,
     },
   }).then(success).catch(err);
-  utool.debug('User being ' + 'Removed '.delete + 'from Models - ', payload);
+  util.debug('User being ' + 'Removed '.delete + 'from Models - ', payload);
 };
