@@ -1,6 +1,6 @@
 {
   "name": "appstore",
-  "version": "1.5.2",
+  "version": "1.6.1",
   "description": "app store",
   "main": "src/server.js",
   "scripts": {
@@ -24,6 +24,7 @@
     "dotenv": "^2.0.0",
     "express": "4.14.0",
     "faker": "3.1.0",
+    "fs-uTool": "^1.0.0",
     "mysql": "2.11.1",
     "sequelize": "3.23.3",
     "supertest": "2.0.0"
