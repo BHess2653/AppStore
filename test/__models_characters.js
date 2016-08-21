@@ -2,15 +2,16 @@ const expect = require('chai').expect;
 const request = require('supertest');
 const faker = require('faker');
 const App = require('../src/models/characters');
-const util = require('../lib/util');
+const utool = require('fs-uTool');
 
 describe('App Model', () => {
   let server;
   let testApps;
   let tempApp;
 
-
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Test for all Apps
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('Gets All', (done) => {
     App.all(
       (err) => {
@@ -23,8 +24,9 @@ describe('App Model', () => {
       }
     );
   });
-
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Add a App
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('Adds a new App', (done) => {
     // Generate a fake App with a random title
     const fakeApp = { name: faker.name.firstName() };
@@ -45,7 +47,9 @@ describe('App Model', () => {
     );
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Find a App
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('Find a App', (done) => {
     // Generate a fake App with a random title
     const targetApp = this.testApps[0];
@@ -63,7 +67,9 @@ describe('App Model', () => {
     );
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Update a App
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('Update a App', (done) => {
     // Load in the info for an existing app
     const updateApp = this.tempApp;
@@ -86,7 +92,9 @@ describe('App Model', () => {
     );
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Remove a App
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('Remove a App', (done) => {
     // Load in the info for an existing app
     const removeApp = this.tempApp;

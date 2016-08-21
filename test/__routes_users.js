@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const request = require('supertest');
 const App = require('../src/models/characters');
-const util = require('../lib/util');
+const utool = require('fs-uTool');
 
 describe('User Routes', () => {
   let server;
@@ -15,7 +15,9 @@ describe('User Routes', () => {
     server.close();
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Test for Multiple Users
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('GET /api/v1/users returns multiple users', (done) => {
     request(server)
       .get('/api/v1/users')
@@ -32,7 +34,9 @@ describe('User Routes', () => {
       .end(done);
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Test for a single user
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('GET /api/v1/users/:id returns an user obj with a id and name property', (done) => {
     request(server)
       .get('/api/v1/users/' + this.user.id)
@@ -46,7 +50,9 @@ describe('User Routes', () => {
       .end(done);
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Test for the Apps of a Specific user
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('GET /api/v1/users/:id/characters should find all apps for a user', (done) => {
     const newApp = {
       name: 'Jimmy101',

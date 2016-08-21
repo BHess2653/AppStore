@@ -2,15 +2,16 @@ const expect = require('chai').expect;
 const request = require('supertest');
 const faker = require('faker');
 const User = require('../src/models/users');
-const util = require('../lib/util');
+const utool = require('fs-uTool');
 
 describe('User Model', () => {
   let server;
   let testUsers;
   let tempUser;
 
-
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Test for all Users
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('Gets All', (done) => {
     User.all(
       (err) => {
@@ -24,7 +25,9 @@ describe('User Model', () => {
     );
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Add a User
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('Adds a new User', (done) => {
     // Generate a fake User with a random name
     const fakeUser = { name: faker.name.firstName() };
@@ -43,7 +46,9 @@ describe('User Model', () => {
     );
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Find a User
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('Find a User', (done) => {
     // Generate a fake User with a random name
     const targetUser = this.testUsers[0];
@@ -61,7 +66,9 @@ describe('User Model', () => {
     );
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Update a User
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('Update a User', (done) => {
     // Load in the info for an existing user
     const updateUser = this.tempUser;
@@ -84,7 +91,9 @@ describe('User Model', () => {
     );
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Remove a User
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('Remove a User', (done) => {
     // Load in the info for an existing user
     const removeUser = this.tempUser;

@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 const request = require('supertest');
-const util = require('../lib/util');
+const utool = require('fs-uTool');
 
 describe('App Routes', () => {
   let server;
@@ -14,7 +14,9 @@ describe('App Routes', () => {
     server.close();
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Test for Multiple Apps
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('GET /api/v1/characters returns multiple apps', (done) => {
     request(server)
       .get('/api/v1/characters')
@@ -31,7 +33,9 @@ describe('App Routes', () => {
       .end(done);
   });
 
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   // Test for a single app
+  // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   it('GET /api/v1/characters/:id returns an app obj with id, title, description, and releaseDate properties', (done) => {
     request(server)
       .get('/api/v1/characters/' + this.app.id)

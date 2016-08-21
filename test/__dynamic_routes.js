@@ -1,8 +1,7 @@
 const expect = require('chai').expect;
 const request = require('supertest');
 const faker = require('faker');
-const util = require('../lib/util');
-
+const utool = require('fs-uTool');
 
 describe('Dynamic Routes Test ', () => {
   let server;
@@ -13,7 +12,7 @@ describe('Dynamic Routes Test ', () => {
   beforeEach('Open Server', (done) => {
     server = require('../src/server');
 
-    util.debug('Server Open ', '✓ Success ✓');
+    utool.debug('Server Open ', '✓ Success ✓');
     done();
   });
 
@@ -22,7 +21,7 @@ describe('Dynamic Routes Test ', () => {
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
   afterEach('Close Server', (done) => {
     server.close();
-    util.debug('Server Close ', '✓ Success ✓');
+    utool.debug('Server Close ', '✓ Success ✓');
     done();
   });
 
@@ -125,10 +124,10 @@ describe('Dynamic Routes Test ', () => {
         .expect('Content-Type', /json/)
         .expect(200)
         .end((err) => {
-          if (err) util.debug('GET route error ', err);
+          if (err) utool.debug('GET route error ', err);
           done();
         });
-        util.debug('GET route hit ', route.route);
+        utool.debug('GET route hit ', route.route);
       });
     } else if (route.method === 'post') {
       it(`${route.desc}`, (done) => {
@@ -137,10 +136,10 @@ describe('Dynamic Routes Test ', () => {
           .send(route.fakeData)
           .expect(200)
           .end((err) => {
-            if (err) util.debug('POST route error ', err);
+            if (err) utool.debug('POST route error ', err);
             done();
           });
-        util.debug('POST route hit ', route.route);
+        utool.debug('POST route hit ', route.route);
       });
     } else {
       it(`${route.desc}`, (done) => {
@@ -148,10 +147,10 @@ describe('Dynamic Routes Test ', () => {
           .delete(route.route)
           .expect(200)
           .end((err) => {
-            if (err) util.debug('DELETE route error ', err);
+            if (err) utool.debug('DELETE route error ', err);
             done();
           });
-        util.debug('DELETE route hit ', route.route);
+        utool.debug('DELETE route hit ', route.route);
       });
     }
   }
