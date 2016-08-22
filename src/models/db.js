@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const utool = require('fs-uTool');
 
-if (!process.env.DB_HOST) require('localenvironment');
+if (!process.env.DB_HOST) require('dotenv').config();
 
 // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 // Sets up database
