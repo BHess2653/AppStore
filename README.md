@@ -71,3 +71,7 @@ CRUD for Apps
 | GET | /api/v1/apps | [{ id: '#', title: 'FirstApp', description: 'AppDescription', releaseDate: '2016-08-04T16:52:49+00:00', }, { id: '#', title: 'SecondApp', description: 'AppDescription', releaseDate: '2016-08-04T16:52:49+00:00', }] |
 | POST | /api/v1/apps/:id | [{ id: '#', title: 'UpdatedAppName', description: 'AppDescription', releaseDate: '2016-08-04T16:52:49+00:00', }] |
 | DELETE | /api/v1/apps/:id | [] |
+
+
+## Deployment Process
+...
