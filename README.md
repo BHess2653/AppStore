@@ -1,3 +1,4 @@
+[ ![Codeship Status for BHess2653/AppStore](https://codeship.com/projects/f58d8630-4a6a-0134-5104-36ee05b9dbad/status?branch=master)](https://codeship.com/projects/169657)
 # Appstore
 This is a Static API demonstration, using fake data.
 
