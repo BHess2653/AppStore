@@ -37,6 +37,15 @@ Turn debug on
 DEBUG=true node src/server.js
 ```
 
+Debug has colors added to it to show what happened.
+
+| Type | Color |
+|---|---|
+| create | green |
+|read | yellow |
+| update | magenta |
+| delete | red |
+
 Sample debug output
 ```
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
